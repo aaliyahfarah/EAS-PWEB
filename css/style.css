@@ -780,6 +780,7 @@ strong {
 .news-block-top {
   border-radius: var(--border-radius-medium);
   position: relative;
+  background-size: cover;
   overflow: hidden;
 }
 

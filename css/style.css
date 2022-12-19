@@ -394,61 +394,7 @@ strong {
   color: var(--primary-color);
 }
 
-.dropdown-menu {
-  background: var(--white-color);
-  box-shadow: 0 1rem 3rem rgba(0,0,0,.175);
-  border: 0;
-  max-width: 50px;
-  padding: 0;
-  margin-top: 20px;
-}
 
-.dropdown-item {
-  display: inline-block;
-  color: var(--p-bg-color);
-  font-size: var(--menu-font-size);
-  font-weight: var(--font-weight-medium);
-  position: relative;
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-
-.dropdown-menu li:last-child .dropdown-item {
-  padding-top: 0;
-}
-
-.dropdown-item.active, 
-.dropdown-item:active,
-.dropdown-item:focus, 
-.dropdown-item:hover {
-  background: transparent;
-  color: var(--primary-color);
-}
-
-.dropdown-toggle::after {
-  content: "\f282";
-  display: inline-block;
-  font-family: bootstrap-icons !important;
-  font-size: var(--copyright-font-size);
-  font-style: normal;
-  font-weight: normal !important;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  vertical-align: -.125em;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  position: relative;
-  left: 2px;
-  border: 0;
-}
-
-@media screen and (min-width: 992px) {
-  .dropdown:hover .dropdown-menu {
-    display: block;
-    margin-top: 0;
-  }
-}
 
 .navbar-toggler {
   border: 0;
@@ -930,27 +876,8 @@ blockquote::before {
   text-align: center;
 }
 
-.testimonial-section::before {
-  content: "";
-  background-color: var(--primary-color);
-  border-radius: 50%;
-  position: absolute;
-  top: -100px;
-  left: -30px;
-  margin: auto;
-  width: 250px;
-  height: 250px;
-}
-
-.testimonial-section::after {
-  content: "";
-  background: var(--custom-btn-bg-color);
-  border-radius: 50%;
-  position: absolute;
-  bottom: -110px;
-  right: -80px;
-  width: 350px;
-  height: 350px;
+.testimonial-section h2{
+  color:var(--custom-1-color);
 }
 
 #testimonial-carousel .carousel-caption {
@@ -1435,13 +1362,6 @@ blockquote::before {
     padding: 8px 20px;
   }
   
-  .dropdown:hover .dropdown-menu {
-    display: block;
-    position: relative;
-    margin-top: 5px;
-    margin-bottom: 20px;
-    left: 20px;
-  }
 
   .site-header .social-icon {
     text-align: left;

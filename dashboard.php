@@ -167,7 +167,7 @@
                                         </div>
                                     </div>
 
-                                    <a href="donate.php" class="custom-btn btn">Download kartu ujian</a>
+                                    <a href="detail_cetak.php" class="custom-btn btn">Download kartu ujian</a>
                                 </div>
                             </div>
                         </div>

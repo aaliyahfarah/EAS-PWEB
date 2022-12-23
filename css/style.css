@@ -1639,3 +1639,23 @@ blockquote::before {
   }
 }
 
+.dropdown-ujian{
+  top: 70px;
+  height: 40px;
+  width: 100%;
+  bottom: 70px;
+  background: #ffffff;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.dropdown-ujian .option div{
+  border-radius: 0px;
+  padding: 40px;
+  top: 70px;
+  width: 100%;
+  background: #8e4f4f;
+  overflow: hidden;
+}
+

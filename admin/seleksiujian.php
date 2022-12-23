@@ -85,26 +85,29 @@
                                         <tr>
                                             <th>No. NIK</th>
                                             <th>Tempat Ujian</th>
-                                            <th>Status</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
                                             <th>No. NIK</th>
                                             <th>Tempat Ujian</th>
-                                            <th>Status</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                        <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>$320,800</td>
-                                        </tr>
-                                        <!-- ISI DATA DARI DATABASE -->
+                                        <?php
+                                            include "../connect.php";    
+
+                                            $sql = "select u.nik, j.jd_lokasi, uj.id_user, uj.id_jadwal from ujian uj join jadwal j on uj.id_jadwal=j.id_jadwal join user u on uj.id_user=u.id_user;";
+                                            $query=$pdo->prepare($sql);
+                                            $query->execute();
+
+                                            while($data=$query->fetch()){
+                                                echo "<tr>";
+                                                echo "<td>".$data['nik']."</td>";
+                                                echo "<td>".$data['jd_lokasi']."</td>";
+                                                echo "</tr>";
+                                            }
+                                        ?>
                                     </tbody>
                                 </table>
                             </div>

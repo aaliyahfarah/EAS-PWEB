@@ -91,7 +91,7 @@
                                             <th>SKKB</th>
                                             <th>Pas Foto</th>
                                             <th>CV</th>
-                                            <th>Status</th>
+                                            <th colspan="2">Status</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -104,14 +104,14 @@
                                             <th>SKKB</th>
                                             <th>Pas Foto</th>
                                             <th>CV</th>
-                                            <th>Status</th>
+                                            <th colspan="2">Status</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
                                         <?php
                                             include "../connect.php";    
 
-                                            $sql = "select u.nik, b.pendidikan, b.jabatan, b.kk, b.akta, b.skkb, b.pasfoto, b.cv, b.status FROM berkas b join user u on u.id_user=b.id_user;";
+                                            $sql = "select u.nik, b.id_daftar, b.pendidikan, b.jabatan, b.kk, b.akta, b.skkb, b.pasfoto, b.cv, b.status FROM berkas b join user u on u.id_user=b.id_user;";
                                             $query=$pdo->prepare($sql);
                                             $query->execute();
 
@@ -125,7 +125,13 @@
                                                 echo "<td>".$data['skkb']."</td>";
                                                 echo "<td>".$data['pasfoto']."</td>";
                                                 echo "<td>".$data['cv']."</td>";
-                                                echo "<td>".$data['status']."</td>";
+                                                if($data['status']=="belum terverifikasi"){
+                                                    echo "<td>".$data['status']."</td>";
+                                                    echo "<td> <a href='proses-edit-verif.php?id=" . $data['id_daftar'] . "'>Verifikasi Berkas</a></td>";
+                                                }else{
+                                                    echo "<td>".$data['status']."</td>";
+                                                }
+                                                
                                                 echo "</tr>";
                                             }
                                         ?>

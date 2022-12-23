@@ -31,7 +31,7 @@ table, th, td{
     <tr>
         <td width="20%">Instansi</td>
         <td width="1%">:</td>
-        <td width="60%">test</td>
+        <td width="60%">Kementerian Kelautan dan Perikanan RI</td>
         <td rowspan="9"><img src="images/logo.png" width="180px" height="200px"></td>
     </tr>
     <tr>

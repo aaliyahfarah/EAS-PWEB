@@ -131,7 +131,7 @@
                         </div>
 
                         <div class="col-lg-5 col-12">
-                            <a href="#" class="me-4">Cek lokasi dan waktu ujianmu sekarang.</a>
+                            <a href="#" class="me-4">Cek status berkasmu sekarang!</a>
                         </div>
 
                     </div>
@@ -150,24 +150,28 @@
                                     <div class="custom-block-body">
                                         <h5 class="mb-3">Kartu Ujian</h5>
 
-                                        <p>Kartu ujian akan tersedia pada saat seluruh berkas telah terverifikasi dan dinyatakan lulus oleh panitia.</p>
+                                        <?php
+                                            include "connect.php";
+                                            
+                                            $id=$_SESSION['id_user'];
 
-                                        <div class="d-flex align-items-center my-2">
-                                            <p class="mb-0">
-                                                <strong>Lokasi:</strong>
-                                                ITS
-                                            </p>
-                                        </div>
+                                            $sql = "select status from berkas where id_user=$id";
+                                            $query=$pdo->prepare($sql);
+                                            $query->execute();
 
-                                        <div class="d-flex align-items-center my-2">
-                                            <p class="mb-0">
-                                                <strong>Waktu:</strong>
-                                                09:00 - 11.30
-                                            </p>
-                                        </div>
+                                            while($data=$query->fetch()){
+                                                if($data['status']=="belum terverifikasi"){
+                                                    echo"<p>Kartu ujian akan tersedia pada saat seluruh berkas telah terverifikasi dan dinyatakan lulus oleh panitia.</p>";
+                                                } else if($data['status']=="sudah terverifikasi"){
+                                                    echo"<p>Selamat, berkasmu sudah terverifikasi!</p>";
+                                                    echo"<a href='tempatujian.php?id=$id' class='custom-btn btn'>Pilih Jadwal dan Lokasi Ujian</a>";
+                                                }
+                                            }
+                                        ?>
+
                                     </div>
 
-                                    <a href="detail_cetak.php" class="custom-btn btn">Download kartu ujian</a>
+                                    <?php echo"<a href='detail_cetak.php?id=$id' class='custom-btn btn'>Download kartu ujian</a>"; ?>
                                 </div>
                             </div>
                         </div>

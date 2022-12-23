@@ -8,6 +8,8 @@ use Dompdf\Dompdf;
 // instantiate and use the dompdf class
 $dompdf = new Dompdf();
 
+
+
 $html = '<style>
 table, th, td{
     padding: 7px;
@@ -23,61 +25,70 @@ table, th, td{
     <div style="font-size:12px">Kementerian Kelautan dan Perikanan RI</div>
 </div>
 
-<hr style="border: 0.5px solid black; margin: 10px 5px 10px 5px;">
+<hr style="border: 0.5px solid black; margin: 10px 5px 10px 5px;">';
 
-<!--backend-->
+$id_user = $_GET['id'];
 
-<table width="100%">
+$sql = "SELECT u.nik, u.nama, u.jenis_kelamin, u.tempat_lahir, u.tanggal_lahir, b.pendidikan, b.jabatan, b.pasfoto from user u join berkas b
+on u.id_user=b.id_user where u.id_user=$id_user";
+$query = mysqli_query($mysqli, $sql);
+$result = mysqli_fetch_array($query);
+
+$sql2 = "SELECT u.nomor_ujian, u.id_jadwal, j.jd_lokasi from ujian u join jadwal j on u.id_jadwal=j.id_jadwal where u.id_user=$id_user";
+$query2 = mysqli_query($mysqli, $sql2);
+$result2 = mysqli_fetch_array($query2);
+
+$html .= '<table width="100%">
     <tr>
         <td width="20%">Instansi</td>
         <td width="1%">:</td>
         <td width="60%">Kementerian Kelautan dan Perikanan RI</td>
-        <td rowspan="9"><img src="images/logo.png" width="180px" height="200px"></td>
+        <td rowspan="9"><img src="upload/pas-foto/'.$result['pasfoto'].'" width="180px" height="200px"></td>
     </tr>
     <tr>
         <td>Lokasi</td>
         <td>:</td>
-        <td>Jl. Ahmad Yani No.152 B, Gayungan, Kec. Gayungan, Kota SBY, Jawa Timur 60235</td>
+        <td>'.$result2['jd_lokasi'].'</td>
     </tr>
     <tr>
         <td>NIK</td>
         <td>:</td>
-        <td>Test</td>
+        <td>'.$result['nik'].'</td>
     </tr>
     <tr>
         <td>Nomor Peserta</td>
         <td>:</td>
-        <td>Test</td>
+        <td>'.$result2['nomor_ujian'].'</td>
     </tr>
     <tr>
         <td>Nama</td>
         <td>:</td>
-        <td>Test</td>
+        <td>'.$result['nama'].'</td>
     </tr>
     <tr>
         <td>Jenis Kelamin</td>
         <td>:</td>
-        <td>Test</td>
+        <td>'.$result['jenis_kelamin'].'</td>
     </tr>
     <tr>
         <td>Tempat Lahir</td>
         <td>:</td>
-        <td>Test</td>
+        <td>'.$result['tempat_lahir'].'</td>
     </tr>
     <tr>
         <td>Tanggal Lahir</td>
         <td>:</td>
-        <td>Test</td>
+        <td>'.$result['tanggal_lahir'].'</td>
     </tr>
     <tr>
         <td>Kualifikasi Pendidikan</td>
         <td>:</td>
-        <td>Test</td>
+        <td>'.$result['pendidikan'].'</td>
     </tr>
     <tr>
         <td>Formasi Jabatan</td>
         <td>:</td>
-        <td>Test</td>
+        <td>'.$result['jabatan'].'</td>
     </tr>
 </table>
 

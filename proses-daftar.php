@@ -42,8 +42,8 @@ move_uploaded_file($tmp_skkb, $path_skkb);
 move_uploaded_file($tmp_pas, $path_pas);
 move_uploaded_file($tmp_kk, $path_kk);
 
-$sql = $pdo->prepare("INSERT INTO berkas(id_user, pendidikan, jabatan, kk, akta, skkb, pasfoto, cv) 
-VALUES(:id,:pend,:jabatan,:kk,:akta,:skkb,:pas,:cv)");
+$sql = $pdo->prepare("INSERT INTO berkas(id_user, pendidikan, jabatan, kk, akta, skkb, pasfoto, cv, status) 
+VALUES(:id,:pend,:jabatan,:kk,:akta,:skkb,:pas,:cv,:status)");
 $sql->bindParam(':id', $id);
 $sql->bindParam(':pend', $pendidikan);
 $sql->bindParam(':jabatan', $jabatan);
@@ -52,6 +52,7 @@ $sql->bindParam(':akta', $akta);
 $sql->bindParam(':skkb', $skkb);
 $sql->bindParam(':pas', $pas);
 $sql->bindParam(':cv', $cv);
+$sql->bindParam(':status', "belum terverifikasi");
 $sql->execute();
 
 if($sql){

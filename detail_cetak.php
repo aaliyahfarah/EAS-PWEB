@@ -29,7 +29,7 @@ table, th, td{
 
 <table width="100%">
     <tr>
-        <td width="16%">Instansi</td>
+        <td width="20%">Instansi</td>
         <td width="1%">:</td>
         <td width="60%">test</td>
         <td rowspan="9"><img src="images/logo.png" width="180px" height="200px"></td>
@@ -70,7 +70,7 @@ table, th, td{
         <td>Test</td>
     </tr>
     <tr>
-        <td>Kalifikasi Pendidikan</td>
+        <td>Kualifikasi Pendidikan</td>
         <td>:</td>
         <td>Test</td>
     </tr>
